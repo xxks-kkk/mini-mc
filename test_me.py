@@ -9,6 +9,11 @@
 This resembles Section 2.4 of the DART paper (PLDI'05).
 """
 
+"""
+hzy:
+- Read http://kqueue.org/blog/2015/05/26/mini-mc/ to understand the program 
+"""
+
 from mc import *
 
 def test_me(x, y):
@@ -17,7 +22,7 @@ def test_me(x, y):
     if y == x + 10:
       assert False
 
-x = BitVec("x", 32)
+x = BitVec("x", 32) # hzy: symbolic 32-bit integers (Z3's python api)
 y = BitVec("y", 32)
 test_me(x, y)
 #mc_fuzz(lambda: test_me(x, y), [x, y], [0, 0])
